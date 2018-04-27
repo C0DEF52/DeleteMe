@@ -4,16 +4,9 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
-using JetBrains.Annotations;
-using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using UnityEditor;
-using Object = UnityEngine.Object;
+using UnityEngine;
 using Debug = UnityEngine.Debug;
-using Random = UnityEngine.Random;
 
 namespace Fiftytwo
 {
