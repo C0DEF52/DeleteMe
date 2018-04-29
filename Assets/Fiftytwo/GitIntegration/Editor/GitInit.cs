@@ -35,8 +35,7 @@ namespace Fiftytwo
 
         private void OnGUI ()
         {
-            GUILayout.Label( "Initialize Git" );
-
+            GUILayout.Label( "Origin (clone URL):" );
             _origin = GUILayout.TextField( _origin );
             _withLFS = GUILayout.Toggle( _withLFS, "With LFS" );
 
@@ -48,9 +47,6 @@ namespace Fiftytwo
                     path = "/usr/local/bin:" + path;
                     Environment.SetEnvironmentVariable( "PATH", path );
                 }
-
-                //ExecuteProcess( "bash", "-c env" );
-                //return;
 
                 ExecuteProcess( git, "init" );
 
@@ -69,8 +65,12 @@ namespace Fiftytwo
 
                 Debug.Log( "Generate .gitignore" );
                 File.WriteAllText( ".gitignore", gitignore );
-                Debug.Log( "Generate .gitattributes" );
-                File.WriteAllText( ".gitattributes", gitattributes );
+
+                if( _withLFS )
+                {
+                    Debug.Log( "Generate .gitattributes" );
+                    File.WriteAllText( ".gitattributes", gitattributes );
+                }
             }
         }
 
