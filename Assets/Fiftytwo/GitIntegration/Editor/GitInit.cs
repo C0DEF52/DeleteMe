@@ -36,17 +36,19 @@ namespace Fiftytwo
         private void OnGUI ()
         {
             GUILayout.Label( "Origin (clone URL):" );
-            _origin = GUILayout.TextField( _origin );
+            _origin = EditorGUILayout.TextField( _origin );
             _withLFS = GUILayout.Toggle( _withLFS, "With LFS" );
 
             if( GUILayout.Button( "Init" ) )
             {
+#if !UNITY_EDITOR_WIN
                 var path = Environment.GetEnvironmentVariable( "PATH" );
                 if( !path.Contains( "/usr/local/bin" ) )
                 {
                     path = "/usr/local/bin:" + path;
                     Environment.SetEnvironmentVariable( "PATH", path );
                 }
+#endif
 
                 ExecuteProcess( git, "init" );
 
@@ -195,6 +197,11 @@ sysinfo.txt
 # Xcode
 xcuserdata/
 *.xccheckout
+
+# Houdini
+HoudiniTemp/
+HoudiniEngineAssetCache/
+HoudiniEngineAssetCache.meta
 
 # Generated assets
 /Assets/Generated.meta
