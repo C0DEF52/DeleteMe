@@ -142,6 +142,7 @@ namespace Fiftytwo
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
+/[Cc]apture/
 /Assets/AssetStoreTools*
 
 # Visual Studio 2015 cache directory
